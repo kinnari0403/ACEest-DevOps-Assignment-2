@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aceest-fitness-shadow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aceest-fitness-shadow
+  template:
+    metadata:
+      labels:
+        app: aceest-fitness-shadow
+    spec:
+      containers:
+        - name: aceest-fitness
+          image: aceest-fitness:v1.0
+          ports:
+            - containerPort: 5000
